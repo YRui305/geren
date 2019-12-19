@@ -7,6 +7,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    redirect: '/home' // 强制跳转
+  },
+  {
     path: '/home',
     name: 'home',
     component: Home
