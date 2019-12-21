@@ -61,10 +61,20 @@ export default {
   methods: {
     submitiLogin () {
       // 手动校验
-      this.$refs.myForm.validate(function (isok) {
+      this.$refs.myForm.validate((isok) => {
         if (isok) {
           // 校验通过，点用登录接口
-          console.log('检校通过，开始登陆')
+          // console.log('检校通过，开始登陆')
+          this.$axios({
+            url: '/authorizations', // 请求axios没有指定类型
+            method: 'post', // 类型
+            data: this.loginForm//
+          }).then(result => {
+            window.localStorage.setItem('user-token', result.data.token)
+            console.log(result.data.token)
+          }).catch(() => {
+
+          })
         }
       })
     }
