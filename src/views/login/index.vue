@@ -66,14 +66,20 @@ export default {
           // 校验通过，点用登录接口
           // console.log('检校通过，开始登陆')
           this.$axios({
-            url: '/authorizations', // 请求axios没有指定类型
+            url: '/authorizations', // 请求axios没有指定类型，没有指定默认是get类型
             method: 'post', // 类型
             data: this.loginForm//
           }).then(result => {
+            // 只接收正确的结果
+            // 前端缓存，登陆成功返回给我们的结果
             window.localStorage.setItem('user-token', result.data.token)
-            console.log(result.data.token)
+            // console.log(result.data.token)
+            this.$router.push('/')
           }).catch(() => {
-
+            this.$message({
+              type: 'waring',
+              message: '手机号或者验证码输入有误，请重新输入'
+            })
           })
         }
       })
