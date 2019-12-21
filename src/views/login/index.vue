@@ -55,7 +55,6 @@ export default {
           }
         } }]
         // chek: [{ require: true, message: '请选择同意' }]
-
       }
     }
   },
@@ -69,7 +68,6 @@ export default {
         }
       })
     }
-
   }
 
 }
@@ -77,7 +75,7 @@ export default {
 
 <style lang='less' scoped>
   .login{
-    background-image: url(../../assets/img/login_bg.jpg);
+    background-image: url(../../assets/img/5.jpg);
     height: 100vh;
     background-size: cover;//自适应覆盖
     display: flex;
